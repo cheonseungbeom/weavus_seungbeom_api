@@ -132,8 +132,10 @@
 ---
 
 ## 📸 스크린샷
+<img width="1906" height="904" alt="스크린샷 대문" src="https://github.com/user-attachments/assets/6f020900-6092-4eaf-986a-c3e21df28879" />
+<img width="1901" height="769" alt="스크린샷 2025-07-17 102751" src="https://github.com/user-attachments/assets/4fcf68a5-e51d-462e-8e8a-9ed7d6d25bb5" />
 
-![project](https://github.com/abhi9720/BankingPortal-API/assets/68281476/45bca1e0-0af2-4d63-a8d0-efd7b67df6bf)
+
 
 ---
 
