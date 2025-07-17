@@ -21,6 +21,56 @@
 
 ---
 
+## 📊 데이터베이스 테이블 구조 (ERD)
+
+<img width="628" height="632" alt="스크린샷 테이블" src="https://github.com/user-attachments/assets/a97ab09e-796d-48cb-be8f-c9d8f365365b" />
+
+> 위 다이어그램은 본 프로젝트의 핵심 테이블 구성(ERD: Entity-Relationship Diagram)을 나타냅니다.
+
+---
+
+### 🧾 주요 테이블 설명
+
+#### 1. `user`
+- 사용자 정보 저장
+- 필드: `name`, `email`, `password`, `phone_number`, `address` 등
+
+#### 2. `account`
+- 하나의 사용자에게 여러 계좌 연결 가능
+- 필드: `account_number`, `balance`, `branch`, `ifsc_code`, `user_id`
+
+#### 3. `transaction`
+- 계좌 간 이체 기록
+- 필드: `amount`, `transaction_type`, `transaction_date`, `source_account_id`, `target_account_id`
+
+#### 4. `token`
+- 인증 토큰 저장 (ex: 로그인 유지)
+- 필드: `token`, `created_at`, `expiry_at`, `account_id`
+
+#### 5. `passwordresettoken`
+- 비밀번호 초기화를 위한 토큰 저장
+- 필드: `token`, `expiry_date_time`, `user_id`
+
+#### 6. `otp_info`
+- 일회용 비밀번호(OTP) 저장용 테이블
+- 필드: `account_number`, `otp`, `generated_at`
+
+#### 7. `passwordresettoken_sequence`
+- `passwordresettoken`의 시퀀스 관리용 테이블
+
+---
+
+### 🔗 관계 요약
+
+- `user` ↔ `account`: 1:N 관계 (한 명의 유저가 여러 계좌 보유)
+- `account` ↔ `transaction`: self-join (송금 계좌와 수신 계좌 모두 포함)
+- `account` ↔ `token`: 1:N 관계
+- `user` ↔ `passwordresettoken`: 1:N 관계
+
+
+
+
+---
 ## ✨ 주요 기능
 
 - **회원 가입**: 이름, 이메일, 주소, 전화번호 입력으로 계정 생성  
